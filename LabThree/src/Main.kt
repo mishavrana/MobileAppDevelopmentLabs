@@ -5,6 +5,11 @@ fun main() = runBlocking {
     // async grades update
     val studentMykhailo = Student(name = "Mykhailo")
 
+    val text by lazy { println("Lazy init") "Hello" }
+    println("Start")
+    println(text)
+    println(text)
+
     val grades = coroutineScope {
         async { fetchGradesFromServer() }
     }.await()
